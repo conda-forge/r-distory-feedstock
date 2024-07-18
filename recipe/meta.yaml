@@ -1,6 +1,5 @@
 {% set version = '1.4.4' %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-distory
@@ -13,8 +12,7 @@ source:
   sha256: 064c36dc1d64db1bc6e9c5aed0c6a342e5ba509c129624162d306c0243d259d2
 
 build:
-  merge_build_host: True  # [win]
-  number: 2
+  number: 3
   rpaths:
     - lib/R/lib/
     - lib/
@@ -22,7 +20,9 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}              # [not win]
+    - {{ stdlib("c") }}                # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
+    - {{ stdlib("m2w64_c") }}          # [win]
     - {{ compiler('cxx') }}            # [not win]
     - {{ compiler('m2w64_cxx') }}      # [win]
     - {{ posix }}filesystem        # [win]
@@ -35,7 +35,6 @@ requirements:
     - r-ape >=5.0
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
     - r-ape >=5.0
 
 test:
