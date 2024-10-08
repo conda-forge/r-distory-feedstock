@@ -1,4 +1,4 @@
-{% set version = '1.4.4' %}
+{% set version = "1.4.5" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/distory_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/distory/distory_{{ version }}.tar.gz
-  sha256: 064c36dc1d64db1bc6e9c5aed0c6a342e5ba509c129624162d306c0243d259d2
+  sha256: 6bc733b01a681f40f3838d204855d2b8bf9f9910f038a66dd0575ec5ab3f349a
 
 build:
-  number: 3
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -45,9 +45,7 @@ test:
 about:
   home: https://CRAN.R-project.org/package=distory
   license: BSD-3-Clause
-  summary: Geodesic distance between phylogenetic trees and associated functions. The theoretical
-    background of 'distory' is published in Billera et al. (2001) "Geometry of the space
-    of phylogenetic trees." <doi:10.1006/aama.2001.0759>.
+  summary: Geodesic distance between phylogenetic trees and associated functions. The theoretical background of 'distory' is published in Billera et al. (2001) "Geometry of the space of phylogenetic trees." <doi:10.1006/aama.2001.0759>.
   license_family: BSD
   license_file:
     - '{{ environ["PREFIX"] }}/lib/R/share/licenses/BSD_3_clause'
